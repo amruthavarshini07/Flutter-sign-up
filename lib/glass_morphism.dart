@@ -8,9 +8,19 @@ class GlassMorphism extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/gradient.jpg"),
-            fit: BoxFit.cover,
+          // Box decoration takes a gradient
+          gradient: LinearGradient(
+            // Where the linear gradient begins and ends
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            // Add one stop for each color. Stops should increase from 0 to 1
+            stops: [0.1, 0.5, 0.9],
+            colors: [
+              // Colors are easy thanks to Flutter's Colors class.
+              Colors.blue[100],
+              Colors.purple[200],
+              Colors.pink[100],
+            ],
           ),
         ),
         child: Center(
@@ -19,7 +29,7 @@ class GlassMorphism extends StatelessWidget {
               BoxShadow(
                 blurRadius: 24,
                 spreadRadius: 16,
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withOpacity(0.07),
               )
             ]),
             child: ClipRRect(
@@ -48,13 +58,13 @@ class GlassMorphism extends StatelessWidget {
                         Text(
                           "Sign Up",
                           style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w900,
                             color: Colors.black,
 
                           ),
                         ),
-                        SizedBox(height: 25),
+                        SizedBox(height: 40),
 
                         TextField(
                           style: TextStyle(
@@ -87,7 +97,7 @@ class GlassMorphism extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         TextField(
                           style: TextStyle(
                             color: Colors.grey,
@@ -119,7 +129,7 @@ class GlassMorphism extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         TextField(
                           style: TextStyle(
                             color: Colors.grey,
@@ -151,7 +161,7 @@ class GlassMorphism extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         TextField(
                           style: TextStyle(
                             color: Colors.grey,
@@ -183,7 +193,7 @@ class GlassMorphism extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 20),
                         TextField(
                           style: TextStyle(
                             color: Colors.grey,
@@ -216,13 +226,37 @@ class GlassMorphism extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 10),
-                        RaisedButton(
+                    Container(
+                      margin: EdgeInsets.all(40),
+                      child: ButtonTheme(
+                        minWidth: 180.0,
+                        height: 50.0,
+
+                      child: FlatButton(
+                          child: Text('LogIn', style: TextStyle(fontSize: 19.0,
+                            fontWeight: FontWeight.w600),),
+                          color: Colors.indigo,
+                          textColor: Colors.white,
                           onPressed: () {},
-                          color: Colors.blueAccent,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(60)),
-                          child: Text("Login"),
-                        )
+                          shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0))
+                        ),
+                      ),
+                    ),
+
+                        Text(
+                          " Already have an account? Login",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.deepPurple,
+
+                          ),
+                        ),
+
+
+
+
+
 
 
                       ],
